@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Piedra Papel Tijeras</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+</head>
+<body>
+  <h1>Piedra Papel y Tijeras</h1>
+  <main>
+    <h3>Seleccionar opción</h3>
+    <div>
+      <button value="papel" class="eleccionUsuario" onclick="usuarioPapel()" selected><img src="hand-regular.svg" alt="PAPEL" height="87" width="100"/></button>
+      <button value="piedra" class="eleccionUsuario" onclick="usuarioPiedra()"><img src="hand-back-fist-regular.svg" alto="PIEDRA" height="87" width="100"/></button>
+      <button value="tijera" class="eleccionUsuario" onclick="usuarioTijeras()"><img src="hand-scissors-regular.svg" alto="PIEDRA" height="87" width="100"/></button>
+    </div>
+    <h4 id="textoUsuario"></h4>
+    <h4 id="textoCpu"></h4>
+    <h3 id="ganadorMano"></h3>
+    <button id="jugar" onclick="jugar()">JUGAR</button>
+    <button id="reset" onclick="limpiar()">REINICIAR</button>
+    <h3 id="ronda"></h3>
+    <h4 id="puntosUsuario"></h4>
+    <h4 id="puntosCpu"></h4>
+    <h2 id="ganador"></h2>
+  </main>
+  <script type="text/javascript" src="script.js"></script>
+</body>
+</html>
