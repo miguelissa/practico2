@@ -52,27 +52,30 @@ function marcador(){
   }
 }
 function jugar(){
-  if(ronda<5){
-
-    eleccionCpu();
-    ganador=determinarGanador(usuario,cpu);
-    document.getElementById("textoUsuario").innerHTML= nombreJugador + " elijio " + usuario;
-    document.getElementById("textoCpu").innerHTML= "Cpu elijio " + cpu;
-    if (ganador==usuario){
-      ganoUsuario ++;
+  if (usuario != piedra && usuario != papel && usuario != tijeras){
+    alert("Seleccione opcion valida para jugar")
+  } else{
+    if(ganoCpu<3&&ganoUsuario<3){
+      eleccionCpu();
+      ganador=determinarGanador(usuario,cpu);
+      document.getElementById("textoUsuario").innerHTML= nombreJugador + " elijio " + usuario;
+      document.getElementById("textoCpu").innerHTML= "Cpu elijio " + cpu;
+      if (ganador==usuario){
+        ganoUsuario ++;
       document.getElementById("ganadorMano").innerHTML="Gano "+ nombreJugador;
       ronda ++;
-    }
-    else if(ganador==cpu){
+      }
+      else if(ganador==cpu){
       ganoCpu ++;
       document.getElementById("ganadorMano").innerHTML="Gano Cpu";
       ronda ++;
-    }
-    else {
+      }
+      else {
       document.getElementById("ganadorMano").innerHTML="Empate";
+      }
     }
+    marcador();
   }
-  marcador();
 }
 function limpiar(){
   ronda=0;
@@ -83,4 +86,7 @@ function limpiar(){
   document.getElementById("textoCpu").innerHTML="";
   document.getElementById("ganadorMano").innerHTML="";
   document.getElementById("ronda").innerHTML="";
+  document.getElementById("puntosUsuario").innerHTML="";
+  document.getElementById("puntosCpu").innerHTML="";
+  document.getElementById("ganador").innerHTML="";
 }
