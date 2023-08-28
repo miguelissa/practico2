@@ -5,26 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Piedra Papel Tijeras</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-
+  <link rel="stylesheet" href="styles.css" type="text/css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>Piedra Papel y Tijeras</h1>
   <main>
-    <h3>Seleccionar opción</h3>
-    <div>
-      <button value="papel" class="eleccionUsuario" onclick="usuarioPapel()" selected><img src="assets/imagenes/hand-regular.svg" alt="PAPEL" height="87" width="100"/></button>
-      <button value="piedra" class="eleccionUsuario" onclick="usuarioPiedra()"><img src="assets/imagenes/hand-back-fist-regular.svg" alto="PIEDRA" height="87" width="100"/></button>
-      <button value="tijera" class="eleccionUsuario" onclick="usuarioTijeras()"><img src="assets/imagenes/hand-scissors-regular.svg" alto="PIEDRA" height="87" width="100"/></button>
+
+    <div class="titulo-conteiner">
+      <h1>Piedra Papel y Tijeras</h1>
+      <h3>Seleccionar opción</h3>
     </div>
-    <h4 id="textoUsuario"></h4>
-    <h4 id="textoCpu"></h4>
-    <h3 id="ganadorMano"></h3>
-    <button id="jugar" onclick="jugar()">JUGAR</button>
-    <button id="reset" onclick="limpiar()">REINICIAR</button>
-    <h3 id="ronda"></h3>
-    <h4 id="puntosUsuario"></h4>
-    <h4 id="puntosCpu"></h4>
-    <h2 id="ganador"></h2>
+
+    <div id="options">
+      <button id="papel" value="papel" class="opcionUsuario" onclick="eleccionUsuario('papel')" ><img src="assets/imagenes/hand-regular.svg" alt="PAPEL" /></button>
+      <button id="piedra" value="piedra" class="opcionUsuario" onclick="eleccionUsuario('piedra')"><img src="assets/imagenes/hand-back-fist-regular.svg" alt="PIEDRA" /></button>
+      <button id="tijeras"value="tijeras" class="opcionUsuario" onclick="eleccionUsuario('tijeras')"><img src="assets/imagenes/hand-scissors-regular.svg" alt=" TIJERAS" /></button>
+    </div>
+
+    <div id="resultado">
+      <h4 id="textoUsuario"></h4>
+      <h4 id="textoCpu"></h4>
+      <h3 id="ganadorMano"></h3>
+    </div>
+
+    <div id="botonera">
+      <button id="jugar" class="boton" onclick="jugar()">JUGAR</button>
+      <button id="reset" class="boton" onclick="limpiar()">REINICIAR</button>
+    </div>
+
+    <div id="marcador">
+      <h3 id="ronda"></h3>
+      <h4 id="puntosUsuario"></h4>
+      <h4 id="puntosCpu"></h4>
+      <h2 id="ganador"></h2>
+    </div>
   </main>
   <script type="text/javascript" src="assets/script.js"></script>
 </body>

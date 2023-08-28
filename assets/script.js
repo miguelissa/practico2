@@ -1,6 +1,7 @@
-const piedra="piedra";
-const tijeras="tijeras";
-const papel="papel";
+const piedra=document.getElementById("piedra");
+const tijeras=document.getElementById("tijeras");
+const papel=document.getElementById("papel");
+const botones=document.querySelectorAll(".opcionUsuario");
 let usuario;
 let cpu;
 let jugadas=["piedra", "papel", "tijeras"];
@@ -11,33 +12,29 @@ let ganoCpu=0;
 let nombreJugador= prompt("ingrese el nombre del jugador:")
 nombreJugador=nombreJugador.toLocaleUpperCase();
 
-function usuarioPapel(){
-  usuario= "papel";
+function eleccionUsuario(a){
+  usuario=a;
 }
-function usuarioPiedra(){
-  usuario= "piedra";
-}
-function usuarioTijeras(){
-  usuario = "tijeras";
-}
+
 function eleccionCpu(){
   let min=0;
   let max=2;
   let num=Math.floor(Math.random()*(max-min+1)+min);
   cpu = jugadas[num];
 }
+
 function determinarGanador(a,b){
-  if(a===tijeras&& b===papel){
+  if(a==="tijeras"&& b==="papel"){
       return a
-  } else if (a===tijeras&& b===piedra){
+  } else if (a==="tijeras"&& b==="piedra"){
       return b
-  } else if(a===papel&& b===tijeras){
+  } else if(a==="papel"&& b==="tijeras"){
       return b;
-  } else if (a===papel&& b===piedra){
+  } else if (a==="papel"&& b==="piedra"){
       return a;
-  } else if(a===piedra&& b===tijeras){
+  } else if(a==="piedra"&& b==="tijeras"){
       return a;
-  } else if (a===piedra&& b===papel){
+  } else if (a==="piedra"&& b==="papel"){
       return b;
   } 
 }
@@ -51,8 +48,9 @@ function marcador(){
     document.getElementById("ganador").innerHTML= nombreJugador +" GANO!";
   }
 }
+
 function jugar(){
-  if (usuario != piedra && usuario != papel && usuario != tijeras){
+  if (usuario != "piedra" && usuario != "papel" && usuario != "tijeras"){
     alert("Seleccione opcion valida para jugar")
   } else{
     if(ganoCpu<3&&ganoUsuario<3){
@@ -77,6 +75,7 @@ function jugar(){
     marcador();
   }
 }
+
 function limpiar(){
   ronda=0;
   ganoCpu=0;
@@ -89,4 +88,16 @@ function limpiar(){
   document.getElementById("puntosUsuario").innerHTML="";
   document.getElementById("puntosCpu").innerHTML="";
   document.getElementById("ganador").innerHTML="";
+  botones.forEach(function (button){
+    button.classList.remove("selected");
+  })
 }
+botones.forEach(function (button) {
+  button.addEventListener("click", function () {
+    botones.forEach(function (otherButton) {
+      otherButton.classList.remove("selected");
+    });
+
+    button.classList.add("selected");
+  });
+});
